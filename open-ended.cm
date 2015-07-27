@@ -1,0 +1,17 @@
+Library
+  signature OPERATIONS
+  structure UnitOperations
+  functor ProductOperations
+
+  signature OPEN_ENDED
+  structure OpenEnded
+  functor EnrichOpenEnded
+
+  signature INJECTION
+is
+  src/operations.sig
+  src/injection.sig
+  src/unit_operations.sml
+  src/product_operations.fun
+  src/open_ended.sig
+  src/open_ended.sml
