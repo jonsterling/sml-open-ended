@@ -33,11 +33,11 @@ struct
 
   fun embed (operation : 'a Operations.t) =
     let
-      val (inject, project) = OpenEnded.embed (Left.default ())
+      val prism as (inject, project) = OpenEnded.embed (Left.default ())
       val fallback = !operationsRef
     in
-      operationsRef := Operations.enrich project (!operationsRef, operation);
-      (inject, project)
+      operationsRef := Operations.enrich prism (!operationsRef, operation);
+      prism
     end
 end
 
