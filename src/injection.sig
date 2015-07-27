@@ -5,6 +5,8 @@ sig
 
   (* inject a [t] into [ambient] *)
   val `> : t -> ambient
+  (* project an [ambient] into a [t] *)
+  val `<? : ambient -> t option
 
   exception Mismatch
 
