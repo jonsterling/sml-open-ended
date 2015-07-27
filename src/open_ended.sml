@@ -1,6 +1,7 @@
 structure OpenEnded :> OPEN_ENDED where type 'a Operations.t = unit =
 struct
   type t = exn
+
   structure Operations = UnitOperations
 
   fun operations () = ()
@@ -13,7 +14,7 @@ struct
            E a => SOME a
          | _ => NONE
    in
-     (E, project)
+     {inject = E, project = project}
    end
 end
 
@@ -33,7 +34,7 @@ struct
 
   fun embed (operation : 'a Operations.t) =
     let
-      val prism as (inject, project) = OpenEnded.embed (Left.default ())
+      val prism as {inject, project} = OpenEnded.embed (Left.default ())
       val fallback = !operationsRef
     in
       operationsRef := Operations.enrich prism (!operationsRef, operation);

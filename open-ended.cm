@@ -1,4 +1,5 @@
 Library
+  structure Prism
   signature OPERATIONS
   structure UnitOperations
   functor ProductOperations
@@ -9,6 +10,7 @@ Library
 
   signature INJECTION
 is
+  src/prism.sml
   src/operations.sig
   src/injection.sig
   src/unit_operations.sml
