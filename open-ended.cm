@@ -10,6 +10,7 @@ Library
 
   signature INJECTION
 is
+  $/basis.cm
   src/prism.sml
   src/operations.sig
   src/injection.sig
